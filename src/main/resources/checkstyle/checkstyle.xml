@@ -7,162 +7,168 @@
 
 <module name="Checker">
 
-    <module name="AbstractClassName"/>
-
-    <module name="AnnotationLocation">
-        <property name="allowSamelineSingleParameterlessAnnotation" value="false" />
+    <module name="SuppressionFilter">
+        <property name="file" value="${config_loc}/suppressions.xml"/>
     </module>
-
-    <module name="AnonInnerLength"/>
-    <module name="ArrayTrailingComma"/>
-    <module name="ArrayTypeStyle"/>
-    <module name="AtclauseOrder"/>
-    <module name="AvoidEscapedUnicodeCharacters"/>
-    <module name="AvoidNestedBlocks"/>
-    <module name="AvoidStarImport"/>
-
-    <module name="AvoidStaticImport">
-        <property name="excludes" value="org.junit.jupiter.api.*,org.junit.jupiter.api.Assertions.*"/>
-    </module>
-
-    <module name="CatchParameterName">
-        <property name="format" value="^e$"/>
-    </module>
-
-    <module name="ClassFanOutComplexity"/>
-
-    <module name="ClassTypeParameterName">
-        <property name="format" value="^[A-Z]{1,2}$"/>
-    </module>
-
-    <module name="CommentsIndentation"/>
-    <module name="ConstantName"/>
-    <module name="CovariantEquals"/>
-    <module name="DeclarationOrder"/>
-    <module name="DefaultComesLast"/>
-    <module name="EmptyBlock"/>
-    <module name="EmptyCatchBlock"/>
-    <module name="EmptyForInitializerPad"/>
-    <module name="EmptyForIteratorPad"/>
-    <module name="EmptyLineSeparator"/>
-    <module name="EmptyStatement"/>
-    <module name="EqualsAvoidNull"/>
-    <module name="EqualsHashCode"/>
-    <module name="FallThrough"/>
 
     <module name="FileLength">
         <property name="max" value="500"/>
     </module>
 
-    <module name="FinalClass"/>
-    <module name="GenericWhitespace"/>
-
-    <module name="HiddenField">
-        <property name="ignoreConstructorParameter" value="true"/>
-        <property name="ignoreSetter" value="true"/>
-    </module>
-
-    <module name="HideUtilityClassConstructor"/>
-
-    <module name="IllegalCatch">
-        <property name="illegalClassNames" value="java.lang.Throwable, Error, Throwable, java.lang.Error"/>
-    </module>
-
-    <module name="IllegalThrows">
-        <property name="illegalClassNames" value="java.lang.Throwable, Error, Throwable, java.lang.Error"/>
-    </module>
-
-    <module name="IllegalToken"/>
-    <module name="IllegalType"/>
-    <module name="Indentation"/>
-    <module name="InnerAssignment"/>
-    <module name="InnerTypeLast"/>
-    <module name="InterfaceIsType"/>
-    <module name="InterfaceMemberImpliedModifier"/>
-    <module name="JavadocParagraph"/>
-    <module name="JavadocStyle"/>
-    <module name="JavadocTagContinuationIndentation"/>
-    <module name="JavadocType"/>
-    <module name="JavadocVariable"/>
-    <module name="LeftCurly"/>
-    <module name="LocalFinalVariableName"/>
-    <module name="LocalVariableName"/>
-    <module name="MagicNumber"/>
-    <module name="MemberName"/>
-
-    <module name="MethodCount">
-        <property name="maxTotal" value="100"/>
-        <property name="maxPublic" value="20"/>
-    </module>
-
-    <module name="MethodLength"/>
-    <module name="MethodName"/>
-    <module name="MethodParamPad"/>
-
-    <module name="MethodTypeParameterName">
-        <property name="format" value="^[A-Z]{1,2}$"/>
-    </module>
-
-    <module name="MissingDeprecated"/>
-    <module name="MissingJavadocMethod"/>
-    <module name="MissingJavadocType"/>
-    <module name="MissingOverride"/>
-    <module name="MissingSwitchDefault"/>
-    <module name="ModifierOrder"/>
-    <module name="MultipleStringLiterals"/>
-    <module name="MultipleVariableDeclarations"/>
-    <module name="MutableException"/>
-    <module name="NeedBraces"/>
-
-    <module name="NestedForDepth">
-        <property name="max" value="3"/>
-    </module>
-
-    <module name="NestedIfDepth">
-        <property name="max" value="3"/>
-    </module>
-
-    <module name="NestedTryDepth"/>
-    <module name="NoClone"/>
-    <module name="NoFinalizer"/>
-    <module name="NonEmptyAtclauseDescription"/>
-    <module name="OneStatementPerLine"/>
-    <module name="OneTopLevelClass"/>
     <module name="NewlineAtEndOfFile"/>
-    <module name="NoLineWrap"/>
-    <module name="NoWhitespaceAfter"/>
-    <module name="NoWhitespaceBefore"/>
-    <module name="NPathComplexity"/>
-    <module name="OperatorWrap"/>
-    <module name="OrderedProperties"/>
-    <module name="OuterTypeFilename"/>
-    <module name="OuterTypeNumber"/>
-    <module name="OverloadMethodsDeclarationOrder"/>
-    <module name="PackageDeclaration"/>
 
-    <module name="PackageName">
-        <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+    <module name="TreeWalker">
+        <property name="tabWidth" value="4"/>
+
+        <module name="AbstractClassName"/>
+
+        <module name="AnnotationLocation">
+            <property name="allowSamelineSingleParameterlessAnnotation" value="false" />
+        </module>
+
+        <module name="AnonInnerLength"/>
+        <module name="ArrayTrailingComma"/>
+        <module name="ArrayTypeStyle"/>
+        <module name="AtclauseOrder"/>
+        <module name="AvoidEscapedUnicodeCharacters"/>
+        <module name="AvoidNestedBlocks"/>
+        <module name="AvoidStarImport"/>
+
+        <module name="AvoidStaticImport">
+            <property name="excludes" value="org.junit.jupiter.api.*,org.junit.jupiter.api.Assertions.*"/>
+        </module>
+
+        <module name="CatchParameterName">
+            <property name="format" value="^e$"/>
+        </module>
+
+        <module name="ClassFanOutComplexity"/>
+
+        <module name="ClassTypeParameterName">
+            <property name="format" value="^[A-Z]{1,2}$"/>
+        </module>
+
+        <module name="CommentsIndentation"/>
+        <module name="ConstantName"/>
+        <module name="CovariantEquals"/>
+        <module name="DeclarationOrder"/>
+        <module name="DefaultComesLast"/>
+        <module name="EmptyBlock"/>
+        <module name="EmptyCatchBlock"/>
+        <module name="EmptyForInitializerPad"/>
+        <module name="EmptyForIteratorPad"/>
+        <module name="EmptyLineSeparator"/>
+        <module name="EmptyStatement"/>
+        <module name="EqualsAvoidNull"/>
+        <module name="EqualsHashCode"/>
+        <module name="FallThrough"/>
+
+        <module name="FinalClass"/>
+        <module name="GenericWhitespace"/>
+
+        <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true"/>
+            <property name="ignoreSetter" value="true"/>
+        </module>
+
+        <module name="HideUtilityClassConstructor"/>
+
+        <module name="IllegalCatch">
+            <property name="illegalClassNames" value="java.lang.Throwable, Error, Throwable, java.lang.Error"/>
+        </module>
+
+        <module name="IllegalThrows">
+            <property name="illegalClassNames" value="java.lang.Throwable, Error, Throwable, java.lang.Error"/>
+        </module>
+
+        <module name="IllegalToken"/>
+        <module name="IllegalType"/>
+        <module name="Indentation"/>
+        <module name="InnerAssignment"/>
+        <module name="InnerTypeLast"/>
+        <module name="InterfaceIsType"/>
+        <module name="InterfaceMemberImpliedModifier"/>
+        <module name="JavadocParagraph"/>
+        <module name="JavadocStyle"/>
+        <module name="JavadocTagContinuationIndentation"/>
+        <module name="JavadocType"/>
+        <module name="JavadocVariable"/>
+        <module name="LeftCurly"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MagicNumber"/>
+        <module name="MemberName"/>
+
+        <module name="MethodCount">
+            <property name="maxTotal" value="100"/>
+            <property name="maxPublic" value="20"/>
+        </module>
+
+        <module name="MethodLength"/>
+        <module name="MethodName"/>
+        <module name="MethodParamPad"/>
+
+        <module name="MethodTypeParameterName">
+            <property name="format" value="^[A-Z]{1,2}$"/>
+        </module>
+
+        <module name="MissingDeprecated"/>
+        <module name="MissingOverride"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="ModifierOrder"/>
+        <module name="MultipleStringLiterals"/>
+        <module name="MultipleVariableDeclarations"/>
+        <module name="MutableException"/>
+        <module name="NeedBraces"/>
+
+        <module name="NestedForDepth">
+            <property name="max" value="3"/>
+        </module>
+
+        <module name="NestedIfDepth">
+            <property name="max" value="3"/>
+        </module>
+
+        <module name="NestedTryDepth"/>
+        <module name="NoClone"/>
+        <module name="NoFinalizer"/>
+        <module name="NonEmptyAtclauseDescription"/>
+        <module name="OneStatementPerLine"/>
+        <module name="OneTopLevelClass"/>
+        <module name="NoLineWrap"/>
+        <module name="NoWhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="NPathComplexity"/>
+        <module name="OperatorWrap"/>
+        <module name="OuterTypeFilename"/>
+        <module name="OuterTypeNumber"/>
+        <module name="OverloadMethodsDeclarationOrder"/>
+        <module name="PackageDeclaration"/>
+
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+        </module>
+
+        <module name="ParameterName"/>
+
+        <module name="ParameterNumber">
+            <property name="max" value="10"/>
+        </module>
+
+        <module name="ParenPad"/>
+        <module name="RedundantImport"/>
+        <module name="RequireThis"/>
+        <module name="RightCurly"/>
+        <module name="SeparatorWrap"/>
+        <module name="SimplifyBooleanReturn"/>
+        <module name="SingleSpaceSeparator"/>
+        <module name="StaticVariableName"/>
+        <module name="StringLiteralEquality"/>
+        <module name="TypecastParenPad"/>
+        <module name="TypeName"/>
+        <module name="UnusedImports"/>
+        <module name="UpperEll"/>
+        <module name="WhitespaceAfter"/>
     </module>
-
-    <module name="ParameterName"/>
-
-    <module name="ParameterNumber">
-        <property name="max" value="10"/>
-    </module>
-
-    <module name="ParenPad"/>
-    <module name="RedundantImport"/>
-    <module name="RequireThis"/>
-    <module name="RightCurly"/>
-    <module name="SeparatorWrap"/>
-    <module name="SimplifyBooleanReturn"/>
-    <module name="SingleSpaceSeparator"/>
-    <module name="StaticVariableName"/>
-    <module name="StringLiteralEquality"/>
-    <module name="TypecastParenPad"/>
-    <module name="TypeName"/>
-    <module name="UnusedImports"/>
-    <module name="UpperEll"/>
-    <module name="WhitespaceAfter"/>
 
 </module>
