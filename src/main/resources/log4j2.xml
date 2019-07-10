@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <Rfc5424Layout format="RFC5424" includeMDC="true" newLine="true"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.pasdam.javatemplate" level="debug" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>
