@@ -1,37 +1,47 @@
 package com.pasdam.javatemplate;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.core.Appender;
+import org.apache.logging.log4j.core.LogEvent;
+import org.apache.logging.log4j.core.Logger;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 class ApplicationTest {
 
-	private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private static final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-	private static final PrintStream originalOut = System.out;
-	private static final PrintStream originalErr = System.err;
+	@Mock
+	private Appender appender;
 
-	@BeforeAll
-	public static void setUp() {
-		System.setOut(new PrintStream(outContent));
-		System.setErr(new PrintStream(errContent));
-	}
+	@BeforeEach
+	void setUp() {
+		MockitoAnnotations.initMocks(this);
+		when(appender.getName()).thenReturn("mock-appender");
+		when(appender.isStarted()).thenReturn(true);
 
-	@AfterAll
-	public static void tearDown() {
-		System.setOut(originalOut);
-		System.setErr(originalErr);
+		LoggerContext context = LoggerContext.getContext(false);
+		Logger logger = context.getLogger(Application.class.getName());
+		logger.addAppender(appender);
+		logger.setLevel(Level.DEBUG);
 	}
 
 	@Test
 	void main() {
 		Application.main(null);
 
-		assertEquals("Hello world\n", outContent.toString());
+		ArgumentCaptor<LogEvent> argumentCaptor = ArgumentCaptor.forClass(LogEvent.class);
+		verify(appender, times(1)).append(argumentCaptor.capture());
+		verify(appender, times(1)).append(any());
+
+		assertEquals("Hello world", argumentCaptor.getValue().getMessage().getFormattedMessage());
 	}
 }
