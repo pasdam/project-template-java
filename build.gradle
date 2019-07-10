@@ -1,0 +1,22 @@
+plugins {
+    id 'checkstyle'
+    id 'jacoco'
+    id 'java'
+}
+
+group 'org.pasdam'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+apply from: 'gradle/checkstyle.gradle'
+apply from: 'gradle/dependencies.gradle'
+apply from: 'gradle/jacoco.gradle'

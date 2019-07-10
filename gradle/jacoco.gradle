@@ -1,0 +1,53 @@
+// This requires
+// plugins {
+//     id 'jacoco'
+// }
+// in the build.gradle file
+
+/**
+ * Example:
+ *
+ * def excludedPath = [
+ *     'com/example/package_to_exclude/*',
+ *     'com/example/ClassToExclude',
+ * ]
+ */
+def excludedPath = [
+]
+
+jacocoTestCoverageVerification {
+
+    executionData project.fileTree(buildDir).include("/jacoco/*.exec")
+
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.95
+            }
+        }
+    }
+
+    afterEvaluate {
+        classDirectories.from = classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedPath)
+        }
+    }
+}
+
+jacocoTestReport {
+
+    executionData project.fileTree(buildDir).include("/jacoco/*.exec")
+
+    reports {
+        html.enabled = true
+        csv.enabled = true
+    }
+
+    afterEvaluate {
+        classDirectories.from = classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedPath)
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
