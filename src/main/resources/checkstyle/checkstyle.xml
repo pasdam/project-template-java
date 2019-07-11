@@ -35,7 +35,7 @@
         <module name="AvoidStarImport"/>
 
         <module name="AvoidStaticImport">
-            <property name="excludes" value="org.junit.jupiter.api.*,org.junit.jupiter.api.Assertions.*"/>
+            <property name="excludes" value="org.junit.jupiter.api.*,org.junit.jupiter.api.Assertions.*,org.mockito.ArgumentMatchers.*,org.mockito.Mockito.*"/>
         </module>
 
         <module name="CatchParameterName">
