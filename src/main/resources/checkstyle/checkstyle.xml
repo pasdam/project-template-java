@@ -35,7 +35,7 @@
         <module name="AvoidStarImport"/>
 
         <module name="AvoidStaticImport">
-            <property name="excludes" value="org.junit.jupiter.api.*,org.junit.jupiter.api.Assertions.*,org.mockito.ArgumentMatchers.*,org.mockito.Mockito.*"/>
+            <property name="excludes" value="org.junit.jupiter.api.*,org.junit.jupiter.api.Assertions.*,org.mockito.Mockito.*,org.mockito.ArgumentMatchers.*"/>
         </module>
 
         <module name="CatchParameterName">
@@ -89,7 +89,11 @@
         <module name="InterfaceIsType"/>
         <module name="InterfaceMemberImpliedModifier"/>
         <module name="JavadocParagraph"/>
-        <module name="JavadocStyle"/>
+
+        <module name="JavadocStyle">
+            <property name="checkFirstSentence" value="false"/>
+        </module>
+
         <module name="JavadocTagContinuationIndentation"/>
         <module name="JavadocType"/>
         <module name="JavadocVariable"/>
@@ -159,7 +163,6 @@
         <module name="RedundantImport"/>
         <module name="RequireThis"/>
         <module name="RightCurly"/>
-        <module name="SeparatorWrap"/>
         <module name="SimplifyBooleanReturn"/>
         <module name="SingleSpaceSeparator"/>
         <module name="StaticVariableName"/>
@@ -169,6 +172,17 @@
         <module name="UnusedImports"/>
         <module name="UpperEll"/>
         <module name="WhitespaceAfter"/>
+
+        <module name="SeparatorWrap">
+            <property name="id" value="SeparatorWrapNewLine"/>
+            <property name="tokens" value="DOT, LPAREN"/>
+            <property name="option" value="nl"/>
+        </module>
+        <module name="SeparatorWrap">
+            <property name="id" value="SeparatorWrapEndOfLine"/>
+            <property name="tokens" value="COMMA, RPAREN"/>
+            <property name="option" value="EOL"/>
+        </module>
     </module>
 
 </module>

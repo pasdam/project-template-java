@@ -4,5 +4,5 @@
 
 <suppressions>
     <suppress checks="." files=".*generated.*"/>
-    <suppress checks="JavadocType|JavadocVariable" files="src/test"/>
+    <suppress checks="JavadocType|JavadocVariable|MagicNumber|MethodName" files=".*/test/.*"/>
 </suppressions>
